@@ -13,6 +13,9 @@
 		DE57E23C2A86240900BA4679 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE57E23A2A86240900BA4679 /* Main.storyboard */; };
 		DE57E23E2A86240B00BA4679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE57E23D2A86240B00BA4679 /* Assets.xcassets */; };
 		DE57E2412A86240B00BA4679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE57E23F2A86240B00BA4679 /* LaunchScreen.storyboard */; };
+		DE57E24D2A862E9200BA4679 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DE57E24C2A862E9200BA4679 /* Alamofire */; };
+		DE57E2502A862E9E00BA4679 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DE57E24F2A862E9E00BA4679 /* SwiftyJSON */; };
+		DE57E2532A862EAF00BA4679 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DE57E2522A862EAF00BA4679 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE57E2532A862EAF00BA4679 /* Kingfisher in Frameworks */,
+				DE57E2502A862E9E00BA4679 /* SwiftyJSON in Frameworks */,
+				DE57E24D2A862E9200BA4679 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +113,11 @@
 			dependencies = (
 			);
 			name = SeSAC_Media;
+			packageProductDependencies = (
+				DE57E24C2A862E9200BA4679 /* Alamofire */,
+				DE57E24F2A862E9E00BA4679 /* SwiftyJSON */,
+				DE57E2522A862EAF00BA4679 /* Kingfisher */,
+			);
 			productName = SeSAC_Media;
 			productReference = DE57E2312A86240900BA4679 /* SeSAC_Media.app */;
 			productType = "com.apple.product-type.application";
@@ -135,6 +146,11 @@
 				Base,
 			);
 			mainGroup = DE57E2282A86240900BA4679;
+			packageReferences = (
+				DE57E24B2A862E9200BA4679 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DE57E24E2A862E9E00BA4679 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				DE57E2512A862EAF00BA4679 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = DE57E2322A86240900BA4679 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -388,6 +404,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE57E24B2A862E9200BA4679 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		DE57E24E2A862E9E00BA4679 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DE57E2512A862EAF00BA4679 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 7.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE57E24C2A862E9200BA4679 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE57E24B2A862E9200BA4679 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DE57E24F2A862E9E00BA4679 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE57E24E2A862E9E00BA4679 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		DE57E2522A862EAF00BA4679 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE57E2512A862EAF00BA4679 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE57E2292A86240900BA4679 /* Project object */;
 }
