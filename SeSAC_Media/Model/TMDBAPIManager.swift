@@ -12,12 +12,14 @@ import SwiftyJSON
 class TMDBAPIManager{
     static let shared = TMDBAPIManager()
     
-    private init(){}
+    let header: HTTPHeaders = ["Authorization": APIKeys.tmdbAccessToken, "accept": "application/json"]
+    
+    var genreData: [GenresData] = []
+    
+    private init(){ callGenresID(endPoint: .genresID) }
     
     func callRequest(endPoint: EndPoint, saveData: @escaping ([TrendMovieData]) -> Void){
-        let url = EndPoint.trendWeek.requestURL
-        
-        let header: HTTPHeaders = ["Authorization": APIKeys.tmdbAccessToken]
+        let url = endPoint.requestURL
         
         AF.request(url, method: .get, headers: header).validate().responseJSON { response in
             switch response.result{
@@ -26,33 +28,35 @@ class TMDBAPIManager{
                 
                 var movieData: [TrendMovieData] = []
                 
-                let dataPath = json["result"]
+                let dataPath = json["results"]
                 
                 for item in dataPath.arrayValue{
                     
-                    let adult = dataPath["adult"].boolValue
-                    let backdrop_path = dataPath["backdrop_path"].stringValue
-                    let id: Int = dataPath["id"].intValue
-                    let title: String = dataPath["title"].stringValue
-                    let original_language: String = dataPath["original_language"].stringValue
-                    let original_title: String = dataPath["original_title"].stringValue
-                    let overview: String = dataPath["overview"].stringValue
-                    let poster_path:String = dataPath["poster_path"].stringValue
-                    let media_type:String = dataPath["media_type"].stringValue
-                    let genre_ids: [JSON] = dataPath["genre_ids"].arrayValue
-                    let popularity: Double = dataPath["popularity"].doubleValue
-                    let release_date: String = dataPath["release_date"].stringValue
-                    let video: Bool = dataPath["video"].boolValue
-                    let vote_average: Double = dataPath["vote_average"].doubleValue
-                    let vote_count: Int = dataPath["vote_count"].intValue
+                    let adult = item["adult"].boolValue
+                    let backdrop_path = item["backdrop_path"].stringValue
+                    let id: Int = item["id"].intValue
+                    let title: String = item["title"].stringValue
+                    let original_language: String = item["original_language"].stringValue
+                    let original_title: String = item["original_title"].stringValue
+                    let overview: String = item["overview"].stringValue
+                    let poster_path:String = item["poster_path"].stringValue
+                    let media_type:String = item["media_type"].stringValue
+                    let genre_ids: [JSON] = item["genre_ids"].arrayValue
+                    let popularity: Double = item["popularity"].doubleValue
+                    let release_date: String = item["release_date"].stringValue
+                    let video: Bool = item["video"].boolValue
+                    let vote_average: Double = item["vote_average"].doubleValue
+                    let vote_count: Int = item["vote_count"].intValue
                     
                     
                     movieData.append(TrendMovieData(adult: adult, backdrop_path: backdrop_path, id: id, title: title, original_language: original_language, original_title: original_title, overview: overview, poster_path: poster_path, media_type: media_type, genre_ids: genre_ids, popularity: popularity, video: video, release_date: release_date, vote_average: vote_average, vote_count: vote_count))
                     
-                    print(movieData)
+                    
                 }
+                print(movieData)
                 
                 saveData(movieData)
+                
                 
             case .failure(let error):
                 print(error)
@@ -60,4 +64,45 @@ class TMDBAPIManager{
             
         }
     }
+    
+    func callImageRequest(endPoint: EndPoint, imagePath: String) -> String{
+        let url = endPoint.requestURL + imagePath
+        
+       return url
+    }
+    
+    func callGenresID(endPoint: EndPoint){
+        let url = endPoint.requestURL
+        
+        AF.request(url, method: .get, headers: header).validate().responseJSON{ response in
+            switch response.result{
+            case .success(let value):
+                let json = JSON(value)
+                
+                for item in json["genres"].arrayValue{
+                    self.genreData.append(GenresData(name: item["name"].stringValue, id: item["id"].intValue))
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+    }
+    
+    func checkGenre(genreID: [JSON]) -> String {
+        var returnString: String = ""
+        var receivedGenreID: [Int] = []
+        
+        for item in genreID{
+            receivedGenreID.append(item.intValue)
+        }
+        
+        for item in genreData{
+            if receivedGenreID.contains(item.id){
+                returnString = returnString + "#\(item.name) "
+            }
+        }
+        return returnString
+    }
+    
 }

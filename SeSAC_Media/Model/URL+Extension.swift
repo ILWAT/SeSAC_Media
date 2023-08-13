@@ -9,9 +9,15 @@ import Foundation
 
 
 extension URL{
-    static let tmdbBaseURL = "https://api.themoviedb.org/3"
+    static let tmdbBaseURL = "https://api.themoviedb.org"
+    static let imageBaseURL = "https://image.tmdb.org/t/p/original"
     
-    static func makeURL(endPoint: String) -> String {
-        return tmdbBaseURL+endPoint
+    static func makeURL(type: EndPoint, endPoint: String) -> String {
+        if type == EndPoint.imagePath{
+            return imageBaseURL+endPoint
+        } else {
+            return tmdbBaseURL+endPoint
+        }
+        
     }
 }
