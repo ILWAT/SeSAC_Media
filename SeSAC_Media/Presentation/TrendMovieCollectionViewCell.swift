@@ -32,6 +32,9 @@ class TrendMovieCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async{
             self.clipButton.layer.cornerRadius = self.clipButton.frame.width/2
         }
+        clipButton.layer.borderWidth = 1
+        clipButton.layer.borderColor = UIColor.black.cgColor
+        
         cellBackgroundView.layer.cornerRadius = 5
         cellBackgroundView.layer.shadowColor = UIColor.gray.cgColor
         cellBackgroundView.layer.shadowOffset = CGSize(width: 10, height: 10)

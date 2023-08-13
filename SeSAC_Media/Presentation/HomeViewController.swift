@@ -9,9 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var trendMovieData: [TrendMovieData] = []{
-        didSet{ self.collectionView.reloadData() }
-    }
+    var trendMovieData: [TrendMovieData] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -27,9 +25,11 @@ class HomeViewController: UIViewController {
     }
     
     func callAPI(){
-        TMDBAPIManager.shared.callRequest(endPoint: .trendWeek, saveData: { result in
+        TMDBAPIManager.shared.callTrendMovieRequest(endPoint: .trendWeek, saveData: { result in
             self.trendMovieData = result
+            self.collectionView.reloadData()
         })
+        
     }
     
     func setCollectioView(){
@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
     func setNaviagation(){
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(tappedLeftBarButtonItem(_ :)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(tappedRightBarButtonItem(_ :)))
+        self.navigationItem.backButtonTitle = ""
     }
     
     @objc func tappedLeftBarButtonItem(_ sender: UIBarButtonItem){
@@ -73,11 +74,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendMovieCollectionViewCell.identifier, for: indexPath) as! TrendMovieCollectionViewCell
-        print(TrendMovieCollectionViewCell.identifier)
         
         cell.setUI(data: trendMovieData[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let nextVC = storyboard?.instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController else { return }
+        
+        nextVC.setData(data: trendMovieData[indexPath.row])
+        
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     

@@ -18,7 +18,7 @@ class TMDBAPIManager{
     
     private init(){ callGenresID(endPoint: .genresID) }
     
-    func callRequest(endPoint: EndPoint, saveData: @escaping ([TrendMovieData]) -> Void){
+    func callTrendMovieRequest(endPoint: EndPoint, saveData: @escaping ([TrendMovieData]) -> Void){
         let url = endPoint.requestURL
         
         AF.request(url, method: .get, headers: header).validate().responseJSON { response in
@@ -104,5 +104,51 @@ class TMDBAPIManager{
         }
         return returnString
     }
+//    "adult": false,
+//                "gender": 2,
+//                "id": 587506,
+//                "known_for_department": "Acting",
+//                "name": "Shameik Moore",
+//                "original_name": "Shameik Moore",
+//                "popularity": 40.911,
+//                "profile_path": "/uJNaSTsfBOvtFWsPP23zNthknsB.jpg",
+//                "cast_id": 705,
+//                "character": "Miles Morales / Spider-Man (voice)",
+//                "credit_id": "6489a4f8e375c000e251ab48",
+//                "order": 0
     
+    func callCreditRequest(endPoint: EndPoint, movieID: Int, saveData: @escaping ([PeopleData]) -> Void){
+        let url = endPoint.requestURL + "\(movieID)" + "/credits"
+        
+        AF.request(url, method: .get, headers: header).validate().responseJSON { response in
+            switch response.result{
+            case .success(let value):
+                let json = JSON(value)
+                
+                var castingData: [PeopleData] = []
+                
+                for item in json["cast"].arrayValue{
+                    let adults = item["adult"].boolValue
+                    let gender = item["gender"].intValue
+                    let name = item["name"].stringValue
+                    let known_for_department = json["known_for_department"].stringValue
+                    let original_name = item["original_name"].stringValue
+                    let profile_path = item["profile_path"].stringValue
+                    let popularity = item["popularity"].doubleValue
+                    let cast_id = item["cast_id"].intValue
+                    let character = item["character"].stringValue
+                    let credit_id = item["credit_id"].stringValue
+                    let order = item["order"].intValue
+                    
+                    castingData.append(PeopleData(adult: adults, gender: gender, department: known_for_department, name: name, originalName: original_name, popularity: popularity, profile: profile_path, cast_id: cast_id, character: character, creditID: credit_id, order: order))
+                }
+                
+                saveData(castingData)
+                
+            case .failure(let error):
+                print(error, #function)
+            }
+            
+        }
+    }
 }

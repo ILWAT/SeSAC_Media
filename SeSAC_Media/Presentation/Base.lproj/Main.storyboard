@@ -46,6 +46,36 @@
             </objects>
             <point key="canvasLocation" x="983.96946564885491" y="-2.1126760563380285"/>
         </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="9dr-Jh-1Qv">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailViewController" id="bX3-If-3CM" customClass="MovieDetailViewController" customModule="SeSAC_Media" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H6Z-eA-qA6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bd7-NC-yqY">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="98I-Ug-AJt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="98I-Ug-AJt" firstAttribute="bottom" secondItem="Bd7-NC-yqY" secondAttribute="bottom" id="7m6-P7-15P"/>
+                            <constraint firstItem="Bd7-NC-yqY" firstAttribute="leading" secondItem="98I-Ug-AJt" secondAttribute="leading" id="8sO-WN-izc"/>
+                            <constraint firstItem="98I-Ug-AJt" firstAttribute="trailing" secondItem="Bd7-NC-yqY" secondAttribute="trailing" id="Eh2-XI-UBn"/>
+                            <constraint firstItem="Bd7-NC-yqY" firstAttribute="top" secondItem="98I-Ug-AJt" secondAttribute="top" id="pVp-z0-kEn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Bd7-NC-yqY" id="A9u-yk-EYv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LVB-5z-DP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995" y="-2"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="T4v-9P-0Cs">
             <objects>
