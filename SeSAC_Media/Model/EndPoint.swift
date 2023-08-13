@@ -13,17 +13,18 @@ enum EndPoint{
     case imagePath
     case genresID
     
-    
     var requestURL: String{
-        switch self{
-        case .trendWeek:
-            return URL.makeURL(type: self, endPoint: "/3/trending/movie/week")
-        case .credit:
-            return URL.makeURL(type: self, endPoint: "/movie/{movie_id}/credits")
-        case .imagePath:
-            return URL.makeURL(type: self, endPoint: "")
-        case .genresID:
-            return URL.makeURL(type: self, endPoint: "/3/genre/movie/list")
+        get{
+            switch self{
+            case .trendWeek:
+                return URL.makeURL(type: self, endPoint: "/3/trending/movie/week")
+            case .credit:
+                return URL.makeURL(type: self, endPoint: "/3/movie/")
+            case .imagePath:
+                return URL.makeURL(type: self, endPoint: "")
+            case .genresID:
+                return URL.makeURL(type: self, endPoint: "/3/genre/movie/list")
+            }
         }
     }
 }
