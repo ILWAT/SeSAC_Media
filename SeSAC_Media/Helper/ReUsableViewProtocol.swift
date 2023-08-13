@@ -17,3 +17,15 @@ extension UICollectionViewCell: ReUsableViewProtocol {
         return String(describing: self)
     }
 }
+
+extension UIViewController: ReUsableViewProtocol{
+    static var identifier: String{
+        return String(describing: self)
+    }
+}
+
+extension UITableViewCell: ReUsableViewProtocol{
+    static var identifier: String{
+        return String(describing: self)
+    }
+}
