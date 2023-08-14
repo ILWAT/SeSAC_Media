@@ -9,7 +9,7 @@ import UIKit
 
 class MovieOverViewTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var overViewLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +22,8 @@ class MovieOverViewTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
     func setUI(text: String){
-        self.overViewLabel.text = text
+        overviewLabel.text = text
     }
+    
 }
