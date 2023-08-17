@@ -11,9 +11,9 @@ class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var movieData: TrendMovieData? = nil
+    var movieData: Result? = nil
     
-    var castingPeopleData: [PeopleData] = []
+    var castingPeopleData: [Cast] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,11 @@ class MovieDetailViewController: UIViewController {
         tableView.register(nib3, forCellReuseIdentifier: MovieCastingTableViewCell.identifier)
     }
     
-    func setData(data: TrendMovieData?){
-        guard let data else {return}
+    func setData(data: Result){
         movieData = data
+        guard let movieData else {return}
         
-        TMDBAPIManager.shared.callCreditRequest(endPoint: .credit, movieID: data.id, saveData: { result in
+        TMDBAPIManager.shared.callCreditRequest(endPoint: .credit, movieID: movieData.id, completionHandler: { result in
             self.castingPeopleData = result
             self.tableView.reloadData()
         })

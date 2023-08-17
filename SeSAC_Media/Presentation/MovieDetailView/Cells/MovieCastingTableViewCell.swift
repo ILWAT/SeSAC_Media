@@ -24,17 +24,17 @@ class MovieCastingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUI(data: PeopleData){
+    func setUI(data: Cast){
         castingImageView.layer.cornerRadius = 5
         setData(data)
     }
     
-    func setData(_ data: PeopleData){
+    func setData(_ data: Cast){
         castingNameLabel.text = data.name
         
         castingDescriptionLabel.text = data.character
         
-        castingImageView.kf.setImage(with: URL(string: TMDBAPIManager.shared.callImageRequest(endPoint: .imagePath, imagePath: data.profile)))
+        castingImageView.kf.setImage(with: URL(string: TMDBAPIManager.shared.returnImagePathURL(endPoint: .imagePath, imagePath: data.profilePath ?? "")))
     }
     
 }

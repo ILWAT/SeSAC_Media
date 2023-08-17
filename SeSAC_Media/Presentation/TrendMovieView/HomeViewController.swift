@@ -9,7 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var trendMovieData: [TrendMovieData] = []
+    var trendMovieData: TrendMovieData = TrendMovieData(page: 0, results: [], totalPages: 0, totalResults: 0) {
+        didSet{
+            self.collectionView.reloadData()
+        }
+    }
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -27,7 +31,6 @@ class HomeViewController: UIViewController {
     func callAPI(){
         TMDBAPIManager.shared.callTrendMovieRequest(endPoint: .trendWeek, saveData: { result in
             self.trendMovieData = result
-            self.collectionView.reloadData()
         })
         
     }
@@ -69,13 +72,13 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trendMovieData.count
+        return trendMovieData.results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendMovieCollectionViewCell.identifier, for: indexPath) as! TrendMovieCollectionViewCell
         
-        cell.setUI(data: trendMovieData[indexPath.row])
+        cell.setUI(data: trendMovieData.results[indexPath.row])
         
         return cell
     }
@@ -83,7 +86,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let nextVC = storyboard?.instantiateViewController(identifier: MovieDetailViewController.identifier) as? MovieDetailViewController else { return }
         
-        nextVC.setData(data: trendMovieData[indexPath.row])
+        nextVC.setData(data: trendMovieData.results[indexPath.row])
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

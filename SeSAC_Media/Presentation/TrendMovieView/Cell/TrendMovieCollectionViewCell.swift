@@ -28,7 +28,7 @@ class TrendMovieCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - setUI()
-    func setUI(data: TrendMovieData){
+    func setUI(data: Result){
         DispatchQueue.main.async{
             self.clipButton.layer.cornerRadius = self.clipButton.frame.width/2
         }
@@ -45,19 +45,18 @@ class TrendMovieCollectionViewCell: UICollectionViewCell {
         setData(data: data)
     }
     
-    func setData(data: TrendMovieData){
+    func setData(data: Result){
         movieTitleLabel.text = data.title
-        movieTitleLabel.font = .boldSystemFont(ofSize: 17
-        )
+        movieTitleLabel.font = .boldSystemFont(ofSize: 17)
         
-        rateLabel.text = "\(data.vote_average)"
+        rateLabel.text = "\(data.voteAverage)"
         
-        dateLabel.text = data.release_date
+        dateLabel.text = data.releaseDate
         
-        movieImageView.kf.setImage(with: URL(string: TMDBAPIManager.shared.callImageRequest(endPoint: .imagePath, imagePath: data.poster_path)))
+        movieImageView.kf.setImage(with: URL(string: TMDBAPIManager.shared.returnImagePathURL(endPoint: .imagePath, imagePath: data.backdropPath)))
         movieImageView.contentMode = .scaleAspectFit
         
-        genreLabel.text = TMDBAPIManager.shared.checkGenre(genreID: data.genre_ids)
+        genreLabel.text = TMDBAPIManager.shared.checkGenre(genreID: data.genreIDS)
     }
 
 }

@@ -25,14 +25,14 @@ class MovieTitleTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUI(data: TrendMovieData){
+    func setUI(data: Result){
         titleLabel.text = data.title
         titleLabel.font = .boldSystemFont(ofSize: 17)
         titleLabel.textColor = .white
         
-        mainImageView.kf.setImage(with: URL(string: EndPoint.imagePath.requestURL+data.poster_path))
+        mainImageView.kf.setImage(with: URL(string: EndPoint.imagePath.requestURL+data.posterPath))
         
-        backgroundImageView.kf.setImage(with: URL(string: EndPoint.imagePath.requestURL+data.backdrop_path))
+        backgroundImageView.kf.setImage(with: URL(string: EndPoint.imagePath.requestURL+data.backdropPath))
         backgroundImageView.contentMode = .scaleAspectFill
     }
     
