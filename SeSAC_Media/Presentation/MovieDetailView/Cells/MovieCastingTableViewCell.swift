@@ -26,6 +26,9 @@ class MovieCastingTableViewCell: UITableViewCell {
     
     func setUI(data: Cast){
         castingImageView.layer.cornerRadius = 5
+        
+        castingDescriptionLabel.textColor = .systemGray
+        
         setData(data)
     }
     
@@ -33,6 +36,7 @@ class MovieCastingTableViewCell: UITableViewCell {
         castingNameLabel.text = data.name
         
         castingDescriptionLabel.text = data.character
+        
         
         castingImageView.kf.setImage(with: URL(string: TMDBAPIManager.shared.returnImagePathURL(endPoint: .imagePath, imagePath: data.profilePath ?? "")))
     }

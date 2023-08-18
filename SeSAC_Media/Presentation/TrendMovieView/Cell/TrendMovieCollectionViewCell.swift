@@ -42,6 +42,8 @@ class TrendMovieCollectionViewCell: UICollectionViewCell {
         
         detailLabel.text = "자세히 보기"
         
+        genreLabel.font = .boldSystemFont(ofSize: 17)
+        
         setData(data: data)
     }
     

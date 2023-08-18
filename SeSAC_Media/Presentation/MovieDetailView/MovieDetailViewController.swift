@@ -80,13 +80,14 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource{
             cell.setUI(data: movieData)
             
             return cell
+            
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieOverViewTableViewCell.identifier) as? MovieOverViewTableViewCell else { return UITableViewCell()}
             
             cell.setUI(text: movieData.overview)
             
-            
             return cell
+            
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCastingTableViewCell.identifier) as? MovieCastingTableViewCell else { return UITableViewCell() }
             
@@ -108,6 +109,17 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource{
             return 100
         default:
             return 100
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 1:
+            return "OverView"
+        case 2:
+            return "Cast"
+        default:
+            return nil
         }
     }
     
