@@ -12,7 +12,7 @@ protocol ReUsableViewProtocol{
     static var identifier: String { get }
 }
 
-extension UICollectionViewCell: ReUsableViewProtocol {
+extension UICollectionReusableView: ReUsableViewProtocol{
     static var identifier: String {
         return String(describing: self)
     }
@@ -29,3 +29,5 @@ extension UITableViewCell: ReUsableViewProtocol{
         return String(describing: self)
     }
 }
+
+

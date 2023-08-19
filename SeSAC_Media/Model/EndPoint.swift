@@ -12,18 +12,21 @@ enum EndPoint{
     case credit
     case imagePath
     case genresID
+    case seriesDetail
     
     var requestURL: String{
         get{
             switch self{
             case .trendWeek:
-                return URL.makeURL(type: self, endPoint: "/3/trending/movie/week")
+                return URL.makeURL(type: self, endPoint: "trending/movie/week")
             case .credit:
-                return URL.makeURL(type: self, endPoint: "/3/movie/")
+                return URL.makeURL(type: self, endPoint: "movie/")
             case .imagePath:
                 return URL.makeURL(type: self, endPoint: "")
             case .genresID:
-                return URL.makeURL(type: self, endPoint: "/3/genre/movie/list")
+                return URL.makeURL(type: self, endPoint: "genre/movie/list")
+            case .seriesDetail:
+                return URL.makeURL(type: self, endPoint: "tv/")
             }
         }
     }

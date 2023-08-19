@@ -32,6 +32,20 @@ class TMDBAPIManager{
         }
     }
     
+    func callTVEpisodeRequest(endPoint: EndPoint, series_id: Int,  saveData: @escaping (TVSeriesData) -> ()) {
+        let url = endPoint.requestURL+"?language=ko-KR"
+        
+        AF.request(url, method: .get, headers: header).validate().responseDecodable(of: TVSeriesData.self) { response in
+            switch response.result{
+            case .success(let value):
+                saveData(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
     func returnImagePathURL(endPoint: EndPoint, imagePath: String) -> String{
         let url = endPoint.requestURL + imagePath
         
