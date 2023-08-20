@@ -41,6 +41,11 @@
 		DEC8A5F32A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC8A5F12A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.xib */; };
 		DEC8A5F52A8FC26D00CBA833 /* TVSeriesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8A5F42A8FC26D00CBA833 /* TVSeriesData.swift */; };
 		DEC8A5F72A8FC2C400CBA833 /* TVEpisodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8A5F62A8FC2C400CBA833 /* TVEpisodeData.swift */; };
+		DEC8A5FB2A925CC600CBA833 /* TVVideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8A5FA2A925CC600CBA833 /* TVVideoData.swift */; };
+		DEC8A5FD2A925D9400CBA833 /* TVSimilarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8A5FC2A925D9400CBA833 /* TVSimilarData.swift */; };
+		DEC8A5FF2A925FCE00CBA833 /* TVAssociatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8A5FE2A925FCE00CBA833 /* TVAssociatedViewController.swift */; };
+		DEC8A6022A92716700CBA833 /* AssociatedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC8A6002A92716700CBA833 /* AssociatedCollectionViewCell.swift */; };
+		DEC8A6032A92716700CBA833 /* AssociatedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC8A6012A92716700CBA833 /* AssociatedCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +82,11 @@
 		DEC8A5F12A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVEpisodeCollectionViewCell.xib; sourceTree = "<group>"; };
 		DEC8A5F42A8FC26D00CBA833 /* TVSeriesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesData.swift; sourceTree = "<group>"; };
 		DEC8A5F62A8FC2C400CBA833 /* TVEpisodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVEpisodeData.swift; sourceTree = "<group>"; };
+		DEC8A5FA2A925CC600CBA833 /* TVVideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVVideoData.swift; sourceTree = "<group>"; };
+		DEC8A5FC2A925D9400CBA833 /* TVSimilarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSimilarData.swift; sourceTree = "<group>"; };
+		DEC8A5FE2A925FCE00CBA833 /* TVAssociatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TVAssociatedViewController.swift; path = SeSAC_Media/Presentation/TV/TVAssociatedViewController.swift; sourceTree = SOURCE_ROOT; };
+		DEC8A6002A92716700CBA833 /* AssociatedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEC8A6012A92716700CBA833 /* AssociatedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssociatedCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,11 +169,13 @@
 				DE57E25F2A864B2D00BA4679 /* URL+Extension.swift */,
 				DE57E2612A864BF500BA4679 /* EndPoint.swift */,
 				DE57E2652A864E3300BA4679 /* TMDBAPIManager.swift */,
+				DEC8A5FA2A925CC600CBA833 /* TVVideoData.swift */,
 				DE57E2672A864ED400BA4679 /* TrendMovieData.swift */,
 				DE57E26E2A89179200BA4679 /* GenresData.swift */,
 				DEA9CDA02A8E827A006BA1A4 /* CreditsData.swift */,
 				DEC8A5F42A8FC26D00CBA833 /* TVSeriesData.swift */,
 				DEC8A5F62A8FC2C400CBA833 /* TVEpisodeData.swift */,
+				DEC8A5FC2A925D9400CBA833 /* TVSimilarData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +233,7 @@
 			children = (
 				DEC8A5E72A8FC13700CBA833 /* Cells */,
 				DEC8A5E52A8FC11600CBA833 /* TVSeriesViewController.swift */,
+				DEC8A5FE2A925FCE00CBA833 /* TVAssociatedViewController.swift */,
 			);
 			path = TV;
 			sourceTree = "<group>";
@@ -232,6 +245,8 @@
 				DEC8A5ED2A8FC23300CBA833 /* TVSeasonCollectionReusableView.xib */,
 				DEC8A5F02A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.swift */,
 				DEC8A5F12A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.xib */,
+				DEC8A6002A92716700CBA833 /* AssociatedCollectionViewCell.swift */,
+				DEC8A6012A92716700CBA833 /* AssociatedCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -306,6 +321,7 @@
 			files = (
 				DEC8A5F32A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.xib in Resources */,
 				DE57E25C2A86498100BA4679 /* .gitignore in Resources */,
+				DEC8A6032A92716700CBA833 /* AssociatedCollectionViewCell.xib in Resources */,
 				DE57E2892A89E8A200BA4679 /* MovieOverViewTableViewCell.xib in Resources */,
 				DE57E27D2A89337B00BA4679 /* MovieTitleTableViewCell.xib in Resources */,
 				DE57E2412A86240B00BA4679 /* LaunchScreen.storyboard in Resources */,
@@ -324,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC8A5FF2A925FCE00CBA833 /* TVAssociatedViewController.swift in Sources */,
 				DEC8A5F72A8FC2C400CBA833 /* TVEpisodeData.swift in Sources */,
 				DE57E26F2A89179200BA4679 /* GenresData.swift in Sources */,
 				DE57E2392A86240900BA4679 /* HomeViewController.swift in Sources */,
@@ -336,12 +353,15 @@
 				DE57E2372A86240900BA4679 /* SceneDelegate.swift in Sources */,
 				DE57E2782A89327E00BA4679 /* MovieCastingTableViewCell.swift in Sources */,
 				DEC8A5EE2A8FC23300CBA833 /* TVSeasonCollectionReusableView.swift in Sources */,
+				DEC8A5FD2A925D9400CBA833 /* TVSimilarData.swift in Sources */,
 				DE57E2882A89E8A200BA4679 /* MovieOverViewTableViewCell.swift in Sources */,
 				DEC8A5E62A8FC11600CBA833 /* TVSeriesViewController.swift in Sources */,
 				DE57E2622A864BF500BA4679 /* EndPoint.swift in Sources */,
 				DE57E27C2A89337B00BA4679 /* MovieTitleTableViewCell.swift in Sources */,
 				DE57E2602A864B2D00BA4679 /* URL+Extension.swift in Sources */,
+				DEC8A5FB2A925CC600CBA833 /* TVVideoData.swift in Sources */,
 				DEC8A5F52A8FC26D00CBA833 /* TVSeriesData.swift in Sources */,
+				DEC8A6022A92716700CBA833 /* AssociatedCollectionViewCell.swift in Sources */,
 				DEC8A5F22A8FC24B00CBA833 /* TVEpisodeCollectionViewCell.swift in Sources */,
 				DE57E2852A89D91900BA4679 /* APIKeys.swift in Sources */,
 				DE57E2682A864ED400BA4679 /* TrendMovieData.swift in Sources */,

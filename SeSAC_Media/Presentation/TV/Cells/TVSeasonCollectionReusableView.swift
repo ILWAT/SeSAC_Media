@@ -26,7 +26,7 @@ class TVSeasonCollectionReusableView: UICollectionReusableView {
     private func setUIData(data: TVSeriesData, season: Int) {
         TitleLabel.text = data.seasons[season].name
         
-        EpisodeCountLabel.text = "\(data.seasons[season].episodeCount)화ㅍㄹㅍ"
+        EpisodeCountLabel.text = "\(data.seasons[season].episodeCount)화"
         
         descriptionLabel.text = data.seasons[season].overview
         
