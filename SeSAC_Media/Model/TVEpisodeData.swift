@@ -66,7 +66,7 @@ struct GuestStar: Codable {
     let order: Int
     let adult: Bool
     let gender, id: Int
-    let knownForDepartment: KnownForDepartment
+    let knownForDepartment: String
     let name, originalName: String
     let popularity: Double
     let profilePath: String
@@ -83,9 +83,6 @@ struct GuestStar: Codable {
     }
 }
 
-enum KnownForDepartment: String, Codable {
-    case acting = "Acting"
-}
 
 // MARK: - Encode/decode helpers
 

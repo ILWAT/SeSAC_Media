@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TVSeasonCollectionReusableView" id="U6b-Vx-4bR" customClass="TVSeasonCollectionReusableView" customModule="SeSAC_Media" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="535" height="188"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iCi-Ns-OBr">
+                    <rect key="frame" x="10" y="10" width="41.333333333333336" height="40.666666666666664"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmt-lj-g09">
+                            <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYD-09-SXe">
+                            <rect key="frame" x="0.0" y="20.333333333333336" width="41.333333333333336" height="20.333333333333336"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mH-rP-8uu">
+                    <rect key="frame" x="10" y="60.666666666666657" width="515" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="3mH-rP-8uu" firstAttribute="leading" secondItem="dmt-lj-g09" secondAttribute="leading" id="49R-Tx-oLT"/>
+                <constraint firstItem="3mH-rP-8uu" firstAttribute="top" secondItem="iCi-Ns-OBr" secondAttribute="bottom" constant="10" id="FeP-8q-hVk"/>
+                <constraint firstItem="iCi-Ns-OBr" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="JlJ-Dl-3c0"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="3mH-rP-8uu" secondAttribute="bottom" constant="10" id="aPB-CR-ryH"/>
+                <constraint firstItem="iCi-Ns-OBr" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="10" id="ewp-Nl-Gls"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="3mH-rP-8uu" secondAttribute="trailing" constant="10" id="qCG-eu-oxz"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iCi-Ns-OBr" secondAttribute="trailing" constant="10" id="xTj-Df-Uy3"/>
+            </constraints>
+            <connections>
+                <outlet property="EpisodeCountLabel" destination="bYD-09-SXe" id="cTO-zL-MXw"/>
+                <outlet property="TitleLabel" destination="dmt-lj-g09" id="uzE-7Q-lRa"/>
+                <outlet property="descriptionLabel" destination="3mH-rP-8uu" id="MfQ-HF-aWm"/>
+            </connections>
+            <point key="canvasLocation" x="303.05343511450383" y="129.57746478873241"/>
+        </collectionReusableView>
+    </objects>
+</document>
