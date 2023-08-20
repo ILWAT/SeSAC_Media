@@ -60,6 +60,33 @@ class TMDBAPIManager{
         }
     }
     
+    func callTVVideoRequest(endPoint:EndPoint, series_id: Int, saveData: @escaping (TVVideoData)->()){
+        let url = endPoint.requestURL+"\(series_id)/videos?language=ko-KR"
+        //D.P.: 110534
+        
+        AF.request(url, method: .get, headers: header).validate().responseDecodable(of:TVVideoData.self) { response in
+            switch response.result{
+            case .success(let value):
+                saveData(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func callTVSimilarRequest(endPoint:EndPoint, series_id: Int, saveData: @escaping (TVSimilarData)->()){
+        let url = endPoint.requestURL+"\(series_id)/similar?language=ko-KR"
+        
+        AF.request(url, method: .get, headers: header).validate().responseDecodable(of:TVSimilarData.self) { response in
+            switch response.result{
+            case .success(let value):
+                saveData(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func returnImagePathURL(endPoint: EndPoint, imagePath: String) -> String{
         let url = endPoint.requestURL + imagePath
         
