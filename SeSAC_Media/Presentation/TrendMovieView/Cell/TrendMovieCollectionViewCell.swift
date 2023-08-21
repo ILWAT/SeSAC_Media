@@ -11,6 +11,7 @@ import Kingfisher
 class TrendMovieCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Properties
+    @IBOutlet weak var originalTitleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -50,6 +51,8 @@ class TrendMovieCollectionViewCell: UICollectionViewCell {
     func setData(data: Result){
         movieTitleLabel.text = data.title
         movieTitleLabel.font = .boldSystemFont(ofSize: 17)
+        
+        originalTitleLabel.text = data.originalTitle
         
         rateLabel.text = "\(data.voteAverage)"
         

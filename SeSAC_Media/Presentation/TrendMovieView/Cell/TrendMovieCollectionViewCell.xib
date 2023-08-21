@@ -64,8 +64,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPO-Yd-ZW0">
-                                <rect key="frame" x="10" y="198.66666666666663" width="41.333333333333336" height="20.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="asdfasfdsaffdfadsfsdfsfafsdfafsdfdsfasf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPO-Yd-ZW0">
+                                <rect key="frame" x="10" y="198.66666666666663" width="154.33333333333334" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,6 +96,12 @@
                                     <constraint firstAttribute="width" secondItem="BZh-8c-QEZ" secondAttribute="height" multiplier="1:1" id="345-gz-scc"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fdfgdfgdfgdgfd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k58-WM-Qps">
+                                <rect key="frame" x="174.33333333333334" y="198.66666666666663" width="116.66666666666666" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -109,9 +115,9 @@
                             <constraint firstItem="hBh-Qk-zLD" firstAttribute="top" secondItem="MPO-Yd-ZW0" secondAttribute="bottom" id="EV6-wG-Tzm"/>
                             <constraint firstItem="WU0-NH-Znq" firstAttribute="leading" secondItem="MPO-Yd-ZW0" secondAttribute="leading" id="G94-VY-A8g"/>
                             <constraint firstItem="MPO-Yd-ZW0" firstAttribute="top" secondItem="eos-is-HAG" secondAttribute="bottom" constant="10" id="LQO-nP-fOw"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MPO-Yd-ZW0" secondAttribute="trailing" constant="10" id="Msu-zJ-bP2"/>
                             <constraint firstItem="ekr-Un-95d" firstAttribute="width" secondItem="eos-is-HAG" secondAttribute="width" multiplier="0.25" id="N83-Jg-vna"/>
                             <constraint firstItem="eos-is-HAG" firstAttribute="height" secondItem="Kh1-k8-QR9" secondAttribute="height" multiplier="0.7" id="NgC-Bl-uhe"/>
+                            <constraint firstItem="k58-WM-Qps" firstAttribute="centerY" secondItem="MPO-Yd-ZW0" secondAttribute="centerY" id="OD9-xw-s2J"/>
                             <constraint firstItem="BZh-8c-QEZ" firstAttribute="centerY" secondItem="chJ-po-Ttk" secondAttribute="centerY" id="OsL-Zm-kUx"/>
                             <constraint firstItem="WU0-NH-Znq" firstAttribute="top" secondItem="hBh-Qk-zLD" secondAttribute="bottom" constant="5" id="U20-Bq-WWc"/>
                             <constraint firstItem="chJ-po-Ttk" firstAttribute="top" relation="lessThanOrEqual" secondItem="WU0-NH-Znq" secondAttribute="bottom" constant="5" id="Z03-fn-j2r"/>
@@ -123,7 +129,9 @@
                             <constraint firstItem="BZh-8c-QEZ" firstAttribute="trailing" secondItem="WU0-NH-Znq" secondAttribute="trailing" id="p8c-d5-sbQ"/>
                             <constraint firstAttribute="bottom" secondItem="chJ-po-Ttk" secondAttribute="bottom" id="pFn-ND-Mjf"/>
                             <constraint firstItem="chJ-po-Ttk" firstAttribute="leading" secondItem="WU0-NH-Znq" secondAttribute="leading" id="puC-vu-EV0"/>
+                            <constraint firstItem="k58-WM-Qps" firstAttribute="trailing" secondItem="WU0-NH-Znq" secondAttribute="trailing" id="vP4-HZ-0bk"/>
                             <constraint firstItem="eos-is-HAG" firstAttribute="bottom" secondItem="ekr-Un-95d" secondAttribute="bottom" constant="15" id="vcQ-7C-T7D"/>
+                            <constraint firstItem="k58-WM-Qps" firstAttribute="leading" secondItem="MPO-Yd-ZW0" secondAttribute="trailing" constant="10" id="xuy-Uu-w55"/>
                             <constraint firstItem="ekr-Un-95d" firstAttribute="leading" secondItem="eos-is-HAG" secondAttribute="leading" constant="15" id="yzD-C2-zhm"/>
                         </constraints>
                     </view>
@@ -152,6 +160,7 @@
                 <outlet property="genreLabel" destination="RWD-JG-d5O" id="A9u-9a-Tu1"/>
                 <outlet property="movieImageView" destination="eos-is-HAG" id="5Nr-BH-kR8"/>
                 <outlet property="movieTitleLabel" destination="MPO-Yd-ZW0" id="FRW-mU-BsB"/>
+                <outlet property="originalTitleLabel" destination="k58-WM-Qps" id="dM2-hz-Mxk"/>
                 <outlet property="rateLabel" destination="0f3-Hh-byh" id="OdE-KT-ZG7"/>
             </connections>
             <point key="canvasLocation" x="344.27480916030532" y="126.40845070422536"/>
