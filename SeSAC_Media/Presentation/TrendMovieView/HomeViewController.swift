@@ -6,26 +6,40 @@
 //
 
 import UIKit
+import SnapKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
+    
+    let mainView = HomeView()
     
     var trendMovieData: TrendMovieData = TrendMovieData(page: 0, results: [], totalPages: 0, totalResults: 0) {
         didSet{
-            self.collectionView.reloadData()
+            mainView.collectionView.reloadData()
         }
     }
-
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func loadView() {
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        setCollectioView()
-        setNaviagation()
+        mainView.collectionView.dataSource = self
+        mainView.collectionView.delegate = self
+    
         callAPI()
         
+    }
+    
+    override func configure() {
+        mainView.collectionView.register(TrendMovieCollectionViewCell.self, forCellWithReuseIdentifier: TrendMovieCollectionViewCell.identifier)
+    }
+
+    override func setNavigation() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(tappedLeftBarButtonItem(_ :)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(tappedRightBarButtonItem(_ :)))
+        self.navigationItem.backButtonTitle = ""
     }
     
     func callAPI(){
@@ -33,29 +47,6 @@ class HomeViewController: UIViewController {
             self.trendMovieData = result
         })
         
-    }
-    
-    func setCollectioView(){
-        let nib = UINib(nibName: TrendMovieCollectionViewCell.identifier, bundle: .main)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: TrendMovieCollectionViewCell.identifier)
-        
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 20
-        let itemWitdh = UIScreen.main.bounds.width - (spacing * 2)
-    
-        layout.itemSize = CGSize(width: itemWitdh, height: itemWitdh) // 1:1 비율 아이템
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        
-        collectionView.collectionViewLayout = layout
-    }
-
-    func setNaviagation(){
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(tappedLeftBarButtonItem(_ :)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(tappedRightBarButtonItem(_ :)))
-        self.navigationItem.backButtonTitle = ""
     }
     
     @objc func tappedLeftBarButtonItem(_ sender: UIBarButtonItem){
@@ -76,9 +67,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendMovieCollectionViewCell.identifier, for: indexPath) as! TrendMovieCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendMovieCollectionViewCell.identifier, for: indexPath) as? TrendMovieCollectionViewCell else{ return UICollectionViewCell() }
         
-        cell.setUI(data: trendMovieData.results[indexPath.row])
+        cell.showData(data: trendMovieData.results[indexPath.row])
         
         return cell
     }

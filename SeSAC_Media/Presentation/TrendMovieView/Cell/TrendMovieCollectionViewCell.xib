@@ -151,18 +151,6 @@
                 <constraint firstItem="RWD-JG-d5O" firstAttribute="leading" secondItem="f6s-YP-ViH" secondAttribute="leading" id="pyD-q9-FZg"/>
             </constraints>
             <size key="customSize" width="321" height="355"/>
-            <connections>
-                <outlet property="cellBackgroundView" destination="Kh1-k8-QR9" id="aM2-Pz-7td"/>
-                <outlet property="clipButton" destination="sIc-Xv-az4" id="EnT-1H-kUJ"/>
-                <outlet property="dateLabel" destination="f6s-YP-ViH" id="A9C-j3-O6J"/>
-                <outlet property="descriptionLabel" destination="hBh-Qk-zLD" id="cHW-34-xWS"/>
-                <outlet property="detailLabel" destination="chJ-po-Ttk" id="QX5-RQ-8sc"/>
-                <outlet property="genreLabel" destination="RWD-JG-d5O" id="A9u-9a-Tu1"/>
-                <outlet property="movieImageView" destination="eos-is-HAG" id="5Nr-BH-kR8"/>
-                <outlet property="movieTitleLabel" destination="MPO-Yd-ZW0" id="FRW-mU-BsB"/>
-                <outlet property="originalTitleLabel" destination="k58-WM-Qps" id="dM2-hz-Mxk"/>
-                <outlet property="rateLabel" destination="0f3-Hh-byh" id="OdE-KT-ZG7"/>
-            </connections>
             <point key="canvasLocation" x="344.27480916030532" y="126.40845070422536"/>
         </collectionViewCell>
     </objects>
