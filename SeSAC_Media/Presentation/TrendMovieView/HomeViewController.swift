@@ -51,6 +51,9 @@ class HomeViewController: BaseViewController {
     
     @objc func tappedLeftBarButtonItem(_ sender: UIBarButtonItem){
         print("tapped left")
+        let vc = ProfileViewController()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func tappedRightBarButtonItem(_ sender: UIBarButtonItem){
