@@ -7,6 +7,7 @@
 
 import UIKit
 
+//protocol-delegate를 통한 값 전달 1
 protocol PassChangeValue{
     func sendValue(value: String, changedCategory: Int)
 }
@@ -16,7 +17,11 @@ class ChangeUserDataViewController: BaseViewController {
     var titleText: String = ""
     var index: Int = 0
     
-    var delegate:PassChangeValue?
+    //protocol-delegate를 통한 값 전달 2
+//    var delegate:PassChangeValue?
+    
+    //Closure를 통한 값 전달 1
+//    var valuePassClosure: ((String, Int)->())?
     
     override func loadView() {
         view = mainView
@@ -39,8 +44,16 @@ class ChangeUserDataViewController: BaseViewController {
     
     @objc func tappedCompleteButton(_ sender: UIBarButtonItem){
         if let inputText = mainView.textField.text{
-            delegate?.sendValue(value: inputText, changedCategory: index)
+            //protocol-delegate를 통한 값 전달 4
+//            delegate?.sendValue(value: inputText, changedCategory: index)
+            
+            //Closure를 통한 값 전달
+//            valuePassClosure?(inputText, index)
+            
+            //Notification을 통한 값 전달
+            NotificationCenter.default.post(name: NSNotification.Name("SettingValueChanger"), object: nil, userInfo: ["changedValueInChangeVC": inputText, "index" : index])
         }
+        
         self.navigationController?.popViewController(animated: true)
     }
     

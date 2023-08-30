@@ -30,6 +30,8 @@ class ProfileViewController: BaseViewController{
         mainView.tableView.register(ProfileImageTableViewCell.self, forCellReuseIdentifier: ProfileImageTableViewCell.identifier)
         mainView.tableView.register(ProfileDefaultTableViewCell.self, forCellReuseIdentifier: ProfileDefaultTableViewCell.identifier)
         mainView.tableView.register(ExceptionTableViewCell.self, forCellReuseIdentifier: ExceptionTableViewCell.identifier)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(saveChangedUserData), name: NSNotification.Name("SettingValueChanger"), object: nil)
     }
     
     override func setNavigation() {
@@ -89,9 +91,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
             nextVC.titleText = settingTitle[indexPath.row]
             nextVC.setPlaceHoler(currentValue: userData.valueReturn(dataType: indexPath.row))
             nextVC.index = indexPath.row
-            nextVC.delegate = self
+            //protocol-delegate를 통한 값 전달 3
+//            nextVC.delegate = self
+//            nextVC.valuePassClosure = { value, changedCategory in
+//                self.userData.chageValue(dataType: changedCategory, newValue: value)
+//            }
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
+    }
+    
+    @objc func saveChangedUserData(notification: NSNotification){
+        guard let value = notification.userInfo?["changedValueInChangeVC"] as? String else { return }
+        guard let changedCategory = notification.userInfo?["index"] as? Int else { return }
+        self.userData.chageValue(dataType: changedCategory, newValue: value)
     }
 }
 
